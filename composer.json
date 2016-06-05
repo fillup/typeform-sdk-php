@@ -1,0 +1,28 @@
+{
+  "name": "fillup/typeform-sdk-php",
+  "description": "PHP client library for Typeform.io APIs",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Phillip Shipley",
+      "email": "phillip.shipley@gmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=5.4",
+    "guzzlehttp/guzzle": "^5.3",
+    "guzzlehttp/guzzle-services": "dev-master",
+    "guzzlehttp/retry-subscriber": "^2.0.2",
+    "roave/security-advisories": "dev-master"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^4.8.24"
+  },
+  "autoload": {
+    "psr-4": {
+      "Typeform\\": "src/"
+    }
+  }
+}
