@@ -6,7 +6,8 @@ use Typeform\BaseClient;
 /**
  * Typeform API client implemented with Guzzle.
  *
- * @method array info(array $config = [])
+ * @method array create(array $config = [])
+ * @method array get(array $config = [])
  */
 class Form extends BaseClient
 {
