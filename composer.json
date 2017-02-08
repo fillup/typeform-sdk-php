@@ -12,8 +12,8 @@
   "minimum-stability": "stable",
   "require": {
     "php": ">=5.4",
-    "guzzlehttp/guzzle": "^5.3",
-    "guzzlehttp/guzzle-services": "dev-master",
+    "guzzlehttp/guzzle": "^5.3.1",
+    "guzzlehttp/guzzle-services": "^0.6.0",
     "guzzlehttp/retry-subscriber": "^2.0.2",
     "roave/security-advisories": "dev-master"
   },
