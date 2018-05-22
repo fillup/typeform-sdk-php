@@ -16,7 +16,7 @@ class BaseClient extends GuzzleClient
     const ENV_PROD = 'prod';
     const ENV_MOCK = 'mock';
 
-    const BASE_URL_PROD = 'https://api.typeform.io';
+    const BASE_URL_PROD = 'https://api.typeform.com';
 
     public $env;
 
