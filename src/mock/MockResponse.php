@@ -90,7 +90,7 @@ class MockResponse
      */
     public static function getResourceTypeFromUrl($url)
     {
-        $matchFound = preg_match('/\/v\d\.?\d?\/(\w+)[\/?]?/', $url, $matches);
+        $matchFound = preg_match('/(\w+)[\/?]?/', $url, $matches);
         if( ! $matchFound || ! is_array($matches) || ! isset($matches[1])) {
             return self::RESOURCE_BASE;
         }
@@ -106,7 +106,7 @@ class MockResponse
      */
     public static function getPath($url)
     {
-        $matchFound = preg_match('/(\/v.*\/.*$)/', $url, $matches);
+        $matchFound = preg_match('/(.*$)/', $url, $matches);
         if( ! $matchFound || ! is_array($matches) || ! isset($matches[1])) {
             throw new \Exception('Unable to parse url path', 1462733286);
         }

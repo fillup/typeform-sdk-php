@@ -12,7 +12,7 @@ class FormTest extends \PHPUnit_Framework_Testcase
 
     public $config = [];
     public $proxy = null;
-    //public $proxy = 'tcp://localhost:8888';
+//    public $proxy = 'tcp://localhost:8888';
     public $verifySsl = false;
     public $env = BaseClient::ENV_MOCK;
     public $debugOutput = false;
@@ -47,7 +47,7 @@ class FormTest extends \PHPUnit_Framework_Testcase
             $this->debug($info);
 
             $this->assertEquals(201, $info['statusCode']);
-            $this->assertEquals('http://example.com/webhook', $info['webhook_submit_url']);
+            $this->assertEquals('en', $info['settings']['language']);
         } catch (CommandClientException $e) {
             $error = $e->getResponse()->getHeader('X-Error');
             $this->fail($e->getMessage() . 'Error: ' . $error);
@@ -60,13 +60,11 @@ class FormTest extends \PHPUnit_Framework_Testcase
     {
         $client = $this->getClient();
         try {
-            $info = $client->get([
-                'form_id' => 'tb3S10omcrpVDg',
-            ]);
+            $info = $client->get('JJDINER');
             $this->debug($info);
 
             $this->assertEquals(200, $info['statusCode']);
-            $this->assertEquals('http://requestb.in/1ao9lh91', $info['webhook_submit_url']);
+            $this->assertEquals('en', $info['settings']['language']);
         } catch (CommandClientException $e) {
             $error = $e->getResponse()->getHeader('X-Error');
             $this->fail($e->getMessage() . 'Error: ' . $error);

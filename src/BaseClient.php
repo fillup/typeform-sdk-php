@@ -58,12 +58,6 @@ class BaseClient extends GuzzleClient
         // Add auth header
         $this->applyCredentials($config);
 
-        // Ensure that ApiVersion is set.
-        $this->setConfig(
-            'defaults/ApiVersion',
-            $this->getDescription()->getApiVersion()
-        );
-
     }
 
     /**
@@ -143,7 +137,7 @@ class BaseClient extends GuzzleClient
         }
         // Set credentials for authentication based on requirements.
         $this->getHttpClient()->setDefaultOption('headers', [
-            'X-API-TOKEN' => $config['apiToken'],
+            'Authorization' => "Bearer " . $config['apiToken'],
         ]);
     }
 

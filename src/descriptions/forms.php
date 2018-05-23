@@ -1,20 +1,54 @@
 <?php return [
-    'baseUrl' => 'https://api.typeform.io',
-    'apiVersion' => 'v0.4',
+    'baseUrl' => 'https://api.typeform.com',
     'operations' => [
         'Create' => [
             'httpMethod' => 'POST',
-            'uri' => '/{ApiVersion}/forms',
+            'uri' => '/forms',
             'responseModel' => 'Result',
             'parameters' => [
-                'ApiVersion' => [
-                    'required' => true,
-                    'type'     => 'string',
-                    'location' => 'uri',
-                ],
                 'title' => [
                     'required' => true,
                     'type' => 'string',
+                    'location' => 'json',
+                ],
+                'settings' => [
+                    'required' => false,
+                    'type' => 'array',
+                    'location' => 'json',
+                ],
+                'theme' => [
+                    'required' => false,
+                    'type' => 'string',
+                    'location' => 'json',
+                ],
+                'workspace' => [
+                    'required' => false,
+                    'type' => 'string',
+                    'location' => 'json',
+                ],
+                'hidden' => [
+                    'required' => false,
+                    'type' => 'array',
+                    'location' => 'json',
+                ],
+                'variables' => [
+                    'required' => false,
+                    'type' => 'array',
+                    'location' => 'json',
+                ],
+                'welcome_screens' => [
+                    'required' => false,
+                    'type' => 'array',
+                    'location' => 'json',
+                ],
+                'thankyou_screens' => [
+                    'required' => false,
+                    'type' => 'array',
+                    'location' => 'json',
+                ],
+                'logic' => [
+                    'required' => false,
+                    'type' => 'array',
                     'location' => 'json',
                 ],
                 'fields' => [
@@ -22,52 +56,49 @@
                     'type' => 'array',
                     'location' => 'json',
                 ],
-                'tags' => [
-                    'required' => false,
-                    'type' => 'array',
-                    'location' => 'json',
-                ],
-                'design_id' => [
-                    'required' => false,
-                    'type' => 'string',
-                    'location' => 'json',
-                ],
-                'webhook_submit_url' => [
-                    'required' => false,
-                    'type' => 'string',
-                    'location' => 'json',
-                ],
-                'url_ids' => [
-                    'required' => false,
-                    'type' => 'array',
-                    'location' => 'json',
-                ],
-                'branding' => [
-                    'required' => false,
-                    'type' => 'string',
-                    'location' => 'json',
-                    'enum' => ['true', 'false'],
-                ],
 
             ],
         ],
-        'Get' => [
+        'GetInternal' => [
             'httpMethod' => 'GET',
-            'uri' => '/{ApiVersion}/forms/{form_id}',
+            'uri' => '/forms/{form_id}',
             'responseModel' => 'Result',
             'parameters' => [
-                'ApiVersion' => [
-                    'required' => true,
-                    'type'     => 'string',
-                    'location' => 'uri',
-                ],
                 'form_id' => [
                     'required' => true,
                     'type'     => 'string',
                     'location' => 'uri',
                 ],
             ],
-        ]
+        ],
+        'CreateWebhook' => [
+            'httpMethod' => 'PUT',
+            'uri' => '/forms/{form_id}/webhooks/{tag}',
+            'responseModel' => 'Result',
+            'parameters' => [
+                'form_id' => [
+                    'required' => true,
+                    'type'     => 'string',
+                    'location' => 'uri',
+                ],
+                'tag' => [
+                    'required' => true,
+                    'type'     => 'string',
+                    'location' => 'uri',
+                ],
+                'url' => [
+                    'required' => true,
+                    'type'     => 'string',
+                    'location' => 'json',
+                ],
+                'enabled' => [
+                    'required' => false,
+                    'type'     => 'boolean',
+                    'location' => 'json',
+                    'default'  => true
+                ],
+            ],
+        ],
     ],
     'models' => [
         'Result' => [
